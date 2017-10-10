@@ -1,0 +1,3 @@
+-- To export filenames from a folder into a file from CMD:
+
+dir /b > filename.txt
