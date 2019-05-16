@@ -1,2 +1,2 @@
-# project
-This is a side project thing
+# Scripts
+Scripts and stuff to play around with
