@@ -1,4 +1,4 @@
-#Powershell script that checks if any folder is in the location defined, removes it and then creates a new folder with the Get-Date
+#Powershell script that checks if any folder is in the location defined by the user, removes it and then creates a new folder with the Get-Date
 #Parameters $dir_location and $date
 
 
