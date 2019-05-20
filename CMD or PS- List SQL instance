@@ -1,0 +1,5 @@
+For CMD:
+reg query "HKLM\Software\Microsoft\Microsoft SQL Server\Instance Names\SQL
+
+For Powershell:
+Get-ItemProperty ‘HKLM:\Software\Microsoft\Microsoft SQL Server\Instance Names\SQL’
