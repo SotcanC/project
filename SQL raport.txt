@@ -1,0 +1,18 @@
+DECLARE @Username VARCHAR(255)
+DECLARE @Query VARCHAR(2048)
+SET @Username = '[sep=,' + CHAR(13) + CHAR(10) + 'LogonID]'
+SET @Query = 
+'SELECT distinct  [LogonID] AS ' + @UserName + ',max(lastlogonattempt) over (partition by logonid) as LastLogon
+    FROM [CCH].[dbo].[xtbl_Users] 
+where LastLogonSuccess is not null and Active=1 and SystemUser=0 order by lastlogon desc '
+
+execute as login = 'sa' 
+EXEC msdb.dbo.sp_send_dbmail
+@profile_name = 'App_Report_DBMail'
+  ,@recipients = 'dorina.prokai@pwc.com'
+,@query=@Query
+,@attach_query_result_as_file=1
+,@query_attachment_filename='UserAccess.csv'
+,@query_result_separator=',' --enforce csv
+,@query_result_no_padding=1 --trim
+,@query_result_width=32767  --stop wordwrap
