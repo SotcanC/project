@@ -1,0 +1,15 @@
+telnet SERVER_NAME 25
+
+ehlo SERVER_NAME
+
+mail from: email_adress@mail.com
+
+rcpt to: email_adress@gmail.com
+
+data
+
+Subject: Test for manual telnet
+ 
+This is a test message.
+ 
+.
