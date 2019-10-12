@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class HelloWorld1 {
+	
+	public static void main (String[] args) {
+		
+		System.out.println("Adding 2 numbers");
+		Scanner myObj1=new Scanner(System.in);
+		System.out.println("Enter first number to add: ");
+		int numar1=myObj1.nextInt();
+		
+		Scanner myObj2=new Scanner(System.in);
+		System.out.println("Enter second number to add: ");
+		int numar2=myObj2.nextInt();
+		int sum= numar1+numar2;
+		
+		System.out.println("The sum of:"+ numar1+" and:"+ numar2+ " is: "+sum);
+	}
+}
