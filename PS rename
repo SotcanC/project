@@ -1,1 +1,40 @@
-get-childitem -Recurse | Select-String -Pattern "cip" |group path | select name > patter.csv
+#ask for string from user
+$string = Read-Host -Prompt 'Enter search value:'
+
+#search in folder-> files for the string
+$files=Get-ChildItem -recurse | Select-String -pattern $string | group path | select name
+
+#output the results
+write-host "Value found in files:" $files
+
+#ask the user the replace value
+$if_Value = Read-Host -Prompt 'Want to replace? y(yes) or n(no)'
+
+#check value
+if ($if_Value -contains "y")
+
+#input value to replace
+    { $value_replace = Read-Host -Prompt 'Enter value to replace'
+#enumerate each file
+    ForEach ($file in $files) {
+    
+#store the file content in a variable
+     #(get-content $file.name) | ForEach-Object {$_ -replace $string, $value_replace }
+     $content=(get-content $file.name) 
+
+#replace the content with the value above
+     $content=$content.Replace( $string, $value_replace)
+#output the file content to screen -the content is just in the variable right now
+
+     write-host $content
+#replace the file content with the content variable from above, the changed one.
+
+     #out-file -FilePath $file.name -InputObject $content
+     $content | Out-File -FilePath $file.name
+    }
+    }
+else { write-host "Closing"
+        Break}
+
+    
+    
