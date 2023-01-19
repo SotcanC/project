@@ -1,3 +1,3 @@
-if (Test-Path -path "C:\Users\csotcan001\Desktop\Test" -PathType container) {Remove-Item -path "C:\Users\csotcan001\Desktop\Test" }
+if (Test-Path -path "C:\Users\user\Desktop\Test" -PathType container) {Remove-Item -path "C:\Users\user\Desktop\Test" }
 $date=Get-Date -format o | foreach {$_ -replace ":","."}
-New-Item -ItemType "directory" -path "C:\Users\csotcan001\Desktop\Test" -name $date
+New-Item -ItemType "directory" -path "C:\Users\user\Desktop\Test" -name $date
